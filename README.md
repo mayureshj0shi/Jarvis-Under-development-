@@ -20,7 +20,7 @@ Modular Architecture: Organized codebase for easier maintenance and future devel
 
 🏗️ Project Structure
 
-Jarvis/
+||| Jarvis/
 ├── api/                # API server
 ├── audio/              # Audio and voice processing
 ├── brain/              # AI agent and language model logic
