@@ -20,20 +20,36 @@ Modular Architecture: Organized codebase for easier maintenance and future devel
 
 🏗️ Project Structure
 
-||| Jarvis/
-├── api/                # API server
-├── audio/              # Audio and voice processing
-├── brain/              # AI agent and language model logic
-├── core/               # Core configuration and orchestration
-├── memory/             # Memory storage and retrieval
-├── tools/              # Tools and integrations
-├── main.py             # Main application entry point
-├── run_api.py          # API startup script
-├── run.bat             # Windows launcher
-├── config.yaml         # Application configuration
-├── requirements.txt    # Python dependencies
-├── .gitignore          # Git exclusions
-└── README.md           # Project documentation
+```
+Jarvis-Under-development-/
+├── api/
+│   └── server.py
+├── audio/
+│   ├── recorder.py
+│   ├── stt.py
+│   ├── tts.py
+│   └── wakeword.py
+├── brain/
+│   ├── __init__.py
+│   ├── agent.py
+│   └── llm.py
+├── core/
+│   ├── __init__.py
+│   ├── config.py
+│   └── orchestrator.py
+├── memory/
+│   ├── obsidian.py
+│   ├── retriever.py
+│   └── store.py
+├── tools/
+├── main.py
+├── run_api.py
+├── run.bat
+├── config.yaml
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
 
 ⚙️ Requirements
 
