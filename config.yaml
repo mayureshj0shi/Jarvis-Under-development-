@@ -1,0 +1,82 @@
+# JARVIS configuration
+
+system:
+  name: "Jarvis"
+  persona: "You are JARVIS, a witty, efficient voice assistant for Windows. Be concise and proactive. Use tools to actually do things for the user."
+
+llm:
+  temperature: 0.7
+  max_tokens: 1024
+  # Tried in order; on error/rate-limit it falls through to the next.
+  providers:
+    - name: gemini
+      base_url: "https://generativelanguage.googleapis.com/v1beta/openai/"
+      api_key_env: "GEMINI_API_KEY"
+      model: "gemini-2.5-flash"      # free-tier Flash model
+      enabled: true
+    - name: groq
+      base_url: "https://api.groq.com/openai/v1"
+      api_key_env: "GROQ_API_KEY"
+      model: "llama-3.3-70b-versatile"
+      enabled: true
+    - name: openrouter
+      base_url: "https://openrouter.ai/api/v1"
+      api_key_env: "OPENROUTER_API_KEY"
+      model: "google/gemma-4-26b-a4b-it:free"
+      enabled: true
+    # Ollama held for now. To enable later: set enabled:true and run
+    # `ollama pull qwen2.5:3b` (needs Ollama installed).
+    # - name: ollama
+    #   base_url: "http://localhost:11434/v1"
+    #   api_key_env: ""
+    #   model: "qwen2.5:3b"
+    #   enabled: false
+
+groq:
+  api_key_env: "GROQ_API_KEY"
+  base_url: "https://api.groq.com/openai/v1"
+  stt_model: "whisper-large-v3"
+
+stt:
+  # Tiered order of preference: gemini -> google (web speech) -> groq (whisper)
+  order: ["gemini", "google", "groq"]
+  gemini_model: "gemini-2.5-flash"
+  groq_model: "whisper-large-v3"
+  faster_whisper_model: "base"
+  auto_clean: true   # WhisperFlow-style filler removal + punctuation
+
+tts:
+  engine: "edge"     # edge | pyttsx3
+  edge_voice: "en-US-AndrewNeural"
+  rate: 0
+
+wake_word:
+  enabled: true
+  model: "jarvis"
+  sensitivity: 0.5
+  push_to_talk_hotkey: "f9"
+
+audio:
+  sample_rate: 16000
+  vad_aggressiveness: 2
+  silence_timeout: 1.5
+  input_device: ""        # device index or name; empty = auto-pick a Microphone
+  debug: true             # print live mic levels so you can see if it hears you
+
+obsidian:
+  vault_path: "F:/Jarvis Vault/Jarvis"
+  memory_folder: "Jarvis Memory"
+
+memory:
+  db_path: "F:/Jarvis/jarvis_memory.db"
+  history_limit: 50
+
+tools:
+  shell_enabled: true
+  shell_allowlist: []          # empty = confirm every command
+  shell_deny: ["rm -rf", "format", "del /f /q", "shutdown", "rd /s"]
+  web_enabled: true
+  confirm_destructive: true
+
+plugins:
+  enabled: []

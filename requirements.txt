@@ -1,0 +1,16 @@
+openai
+pyyaml
+python-dotenv
+rich
+requests
+numpy
+pyaudio
+webrtcvad
+SpeechRecognition
+faster-whisper
+edge-tts
+pyttsx3
+openwakeword
+fastapi
+uvicorn
+python-multipart

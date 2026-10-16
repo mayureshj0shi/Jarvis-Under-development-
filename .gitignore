@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
+
+# Data
+*.db
+jarvis_memory.db
+
+# OS
+Thumbs.db
+Desktop.ini
