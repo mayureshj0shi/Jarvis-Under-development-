@@ -64,31 +64,32 @@ API credentials for services that require authentication
 🚀 Installation
 
 1. Clone the repository
+```
 
 git clone https://github.com/YOUR-USERNAME/Jarvis.git
 cd Jarvis
-
+```
 Replace YOUR-USERNAME with your GitHub username.
 
 2. Create a virtual environment
-
+```
 python -m venv .venv
-
+```
 3. Activate the environment
 
 Windows (Command Prompt):
-
+```
 .venv\Scripts\activate
-
+```
 Windows (PowerShell):
-
+```
 .\.venv\Scripts\Activate.ps1
-
+```
 4. Install dependencies
-
+```
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-
+```
 5. Configure the application
 
 Review config.yaml and configure the required settings.
@@ -98,13 +99,13 @@ If the project uses environment variables, create a .env file based on the requi
 6. Run Jarvis
 
 Start the main application:
-
+```
 python main.py
-
+```
 To start the API server, if required:
-
+```
 python run_api.py
-
+```
 Alternatively, Windows users can try run.bat.
 
 
